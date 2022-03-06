@@ -24,7 +24,7 @@ To simulate these sub circuits, we are going to use netlist and simulate it usin
 .lib "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130.lib.spice tt"
 ```
 
-And if we going to use a specific model, we have to include that in the netlist ( in this case, we are using `sky130_fd_pr__pnp_05v5_W3p40L3p40 model`)
+And if we going to use a specific model, we have to include that in the netlist ( in this case, we are using **sky130_fd_pr__pnp_05v5_W3p40L3p40 model**)
 
 ```
 .include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
@@ -43,6 +43,39 @@ For simulating the design in DC the syntax is,
 .dc Vs1 0 1.8 0.01 : Simulate for Vs1 varying from 0V to 1.8V with 0.01V step
 ```
 
+## CTAT Simulation
+
+The aim of this simulation is to find the voltage variation across BJT with respect to the temp if use current source of 10uA. The spice netlist which we are going to simulate is, 
+
+```
+**** ctat voltage generation circuit *****
+
+.lib "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130.lib.spice tt"
+.include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
+
+.global vdd gnd
+.temp 27
+
+*** bjt definition
+xqp1	gnd	gnd	qp1	gnd	sky130_fd_pr__pnp_05v5_W3p40L3p40	m=1
+
+*** supply voltage and current
+vsup	vdd	gnd	dc	2
+isup	vdd	qp1	dc 	10u
+.dc	temp	-40	125	5
+
+*** control statement
+.control
+run
+plot v(qp1)
+.endc
+.end
+
+```
+
+And to simulate this netlist, type `ngspice ctat_voltage_gen.sp`. Now we the see the corresponding waveform after the simulation
+
+![c2_Picture1](https://user-images.githubusercontent.com/89923461/156916584-e521a3b1-a3fa-4039-8d92-e252f5ca2a2e.png)
 
 
 
