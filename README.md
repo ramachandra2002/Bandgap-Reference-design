@@ -30,4 +30,23 @@ And if we going to use a specific model, we have to include that in the netlist 
 .include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
 ```
 
+The syntax which we are going to use for independent voltage/current sources is,
+
+```
+Vxx n1 n2 dc 1.8 : *Vxx* - Voltage source, *n1* - Node-1 of voltage source, *n2* - Node-2 of voltage source, *dc* - Type (can be dc/ac) *1.8* - value
+Ixx n1 n2 dc 10u : *Ixx* - Current source, *n1* - Node-1 of current source, *n2* - Node-2 of current source, *dc* - Type (can be dc/ac) *1.8* - value
+```
+For simulating the design in DC the syntax is,
+
+```
+.dc temp -40 125 5 : Simulate for temp varying from -40 to 125 with 5 dec cent step
+.dc Vs1 0 1.8 0.01 : Simulate for Vs1 varying from 0V to 1.8V with 0.01V step
+```
+
+
+
+
+
+
+
 
