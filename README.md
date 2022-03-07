@@ -10,12 +10,6 @@ This repository contains the analysis and design of Bandgap IP Design using Sky1
 
 # Circuit Design Calculations
 
-## 1. Current Calculation
-
-- Maximum power consumption < 60 uW
-- Maximum total current = 60 uW / 1.8 V = 33.34 uA
-
-
 # Pre-Layout Simulation
 
 To simulate these sub circuits, we are going to use netlist and simulate it using *ngspice*. To create a netlist, first create a file with a `filename.sp` extension. Use the first line as a comment to describe about the circuit for easier identification. First to create a valid spice netlist, we have to include a library with its path and its corner name.
