@@ -239,6 +239,81 @@ And to simulate this netlist, type `ngspice ptat_voltage_gen.sp`. Now we the see
 
 ![vcvs_Picture1](https://user-images.githubusercontent.com/89923461/156959196-4a174ca4-3b37-4cc2-ad22-576e2e049245.png)
 
+## Resistance tempco.
+
+The voltage across the resistor also increases with increase in the temperature, which makes the resistor similar to PTAT. The main objective of this simulation is to check the tempco. of resistor using ideal current source of 10uA. The spice netlist which we are going to simulate is,
+
+```
+**** ctat voltage generation circuit *****
+
+.lib "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130.lib.spice tt"
+.include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
+
+.global vdd gnd
+.temp 27
+
+*** resistor definition
+xra1    ra1     na1     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra2    na1     na2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra3    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra4    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+
+*** supply current
+vsup	vdd	gnd	dc	2
+vid     qp2     gnd     dc      0
+isup	gnd	ra1	dc 	10u
+.dc	temp	-40	125	1	
+
+*** control statement
+.control
+run
+plot v(ra1) 
+plot v(ra1)/vid#branch
+.endc
+.end
+```
+
+And to simulate this netlist, type `ngspice res_tempco.sp`. Now we the see the corresponding waveform after the simulation
+
+![tempco_Picture1](https://user-images.githubusercontent.com/89923461/156959904-48844b04-1c0f-4d76-a489-56f48ceb22b2.png)
+
+To find the PTAT voltages across the resistance for different current values from the following curve we have to simulate the netlist `res_tempco_var_current.sp` 
+
+```
+**** RES tempco circuit *****
+
+.lib "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130.lib.spice tt"
+.include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
+
+.global vdd gnd
+.temp 27
+
+*** resistor definition
+xra1    ra1     na1     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra2    na1     na2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra3    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+xra4    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41  l=7.8
+
+*** supply current
+vsup	vdd	gnd	dc	2
+vid     qp2     gnd     dc      0
+isup	gnd	ra1	dc 	10u
+.dc	temp	-40	125	1	isup	1.25u	10u	1.25u
+
+*** control statement
+.control
+run
+plot v(ra1) 
+plot v(ra1)/vid#branch
+.endc
+.end
+```
+
+![var_c_Picture1](https://user-images.githubusercontent.com/89923461/156960129-ead047f8-bcae-45d2-a98c-eb02d78acfc2.png)
+
+## BGR using Ideal Opamp
+
+
 
 
 
