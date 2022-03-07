@@ -10,13 +10,21 @@ This repository contains the analysis and design of Bandgap IP Design using Sky1
 
 The Bandgap Reference is a circuit which generates stable voltage which is independent of factors like temperature, supply voltage. A battery cannot be used because it's voltage will drop after a time period. And to avoid noisy voltages and additional components we use bandgap reference which can be integrated in bulk-CMOS, bi-CMOS without external components.
 
+![intro_photo_2022-03-07_23-49-43](https://user-images.githubusercontent.com/89923461/157094522-39bc528f-0e84-426b-b6b6-5379db61fe93.jpg)
+
 ## BGR Principle
 
 The principle of BGR circuits is to sum a voltage with negative temprature coefficient with another one exhibiting opposite temperature dependancies. In general, semiconductor diodes act as CTAT, or complement to absolute temperature, which implies that as temperature rises, the voltage across the diode decreases. As a result, we must devise a PTAT circuit capable of cancelling out the CTAT nature, i.e. with an increase in temperature. The voltage across that device will rise, allowing us to get a constant voltage reference with regard to temperature.
 
+![priciple_photo_2022-03-07_23-50-13](https://user-images.githubusercontent.com/89923461/157094527-2b451eb1-42e8-4d22-a5db-71433d778e58.jpg)
+
+
 ##  CTAT Voltage generation circuit
 
 CTAT behaviour is common in semiconductor diodes. When a constant current flows through a forward biassed diode, we can see that the voltage across the diode decreases as the temperature rises. In general, the slope of the VTemp is determined to be -2mV/deg C. The CTAT Voltage generating circuit is made up of a BJT linked as a diode, which demonstrates the CTAT nature described above.
+
+![ctat_photo_2022-03-07_23-50-23](https://user-images.githubusercontent.com/89923461/157094550-8dfe7fd6-318e-4bd5-ba92-9a06ff348c39.jpg)
+
 
 ## PTAT Voltage generation circuit
 
@@ -24,21 +32,34 @@ Diode current equation has two parts, i.e. Vt (Thermal Voltage) which is directl
 
 So, in order to create a PTAT Voltage generating circuit, we must first figure out how to extract Vt from Is. The circuit should consist of N BJTs linked with a series resistance to isolate Vt from Is.
 
+![ptat_photo_2022-03-07_23-50-31](https://user-images.githubusercontent.com/89923461/157094533-6bdd8898-25a3-4733-a2e7-74a02d1947a3.jpg)
+
+
 ## Self-Biased Current Mirror Circuit
 
 The self-biased current mirror is a sort of current mirror that does not need to be biased externally. Without any external current source reference, this current mirror biases itself to the desired current value.
+
+![current mirror_photo_2022-03-07_23-50-49](https://user-images.githubusercontent.com/89923461/157094511-dcb99205-2797-4119-a348-b78b4965c731.jpg)
+
 
 ## Reference Branch Circuit
 
 The final reference voltage is obtained by adding the CTAT and PTAT voltages in the reference circuit branch. In the reference branch, we use a mirror transitor and a BJT as a diode. The reference branch receives the same amount of current as the current mirror branches due to the mirror transistor. We now have PTAT voltage and PTAT current coming from the PTAT circuit branch. In the reference branch, the same PTAT current is flowing. However, the PTAT voltage slope is substantially smaller than the CTAT voltage slope. We must raise the resistance in order to enhance the voltage slope. We now have our constant reference voltage, which is the consequence of CTAT Voltage + PTAT Voltage across the high resistance.
 
+![ref_photo_2022-03-07_23-51-02](https://user-images.githubusercontent.com/89923461/157094539-62e66bfe-4cfd-4736-a230-98a74aa5c666.jpg)
+
+
 ## Start-up circuit
 
 To transfer the self biassed current mirror from the degenerative bias point, the start-up circuit is necessary (zero current). When the current in the current mirror branches is zero, the start-up circuit forcibly flows a small amount of current through the self-biased current mirror. Because the current mirror is self-biased, this small current causes a disturbance, and the current mirror auto-biased to the desired current value.
 
+![final_photo_2022-03-07_23-51-19](https://user-images.githubusercontent.com/89923461/157094517-1a3863e3-417a-4947-ac27-33e27bbd2782.jpg)
+
 ## Complete BGR Circuit
 
 By connecting the subcircuits we get the total circuit,
+
+![startup_photo_2022-03-07_23-51-10](https://user-images.githubusercontent.com/89923461/157094544-25e935bd-89d9-4257-99e6-4c3a9ffb24a5.jpg)
 
 
 # Tools Used
