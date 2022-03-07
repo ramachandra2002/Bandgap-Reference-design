@@ -53,13 +53,13 @@ The final reference voltage is obtained by adding the CTAT and PTAT voltages in 
 
 To transfer the self biassed current mirror from the degenerative bias point, the start-up circuit is necessary (zero current). When the current in the current mirror branches is zero, the start-up circuit forcibly flows a small amount of current through the self-biased current mirror. Because the current mirror is self-biased, this small current causes a disturbance, and the current mirror auto-biased to the desired current value.
 
-![final_photo_2022-03-07_23-51-19](https://user-images.githubusercontent.com/89923461/157094517-1a3863e3-417a-4947-ac27-33e27bbd2782.jpg)
+![startup_photo_2022-03-07_23-51-10](https://user-images.githubusercontent.com/89923461/157094544-25e935bd-89d9-4257-99e6-4c3a9ffb24a5.jpg)
 
 ## Complete BGR Circuit
 
 By connecting the subcircuits we get the total circuit,
 
-![startup_photo_2022-03-07_23-51-10](https://user-images.githubusercontent.com/89923461/157094544-25e935bd-89d9-4257-99e6-4c3a9ffb24a5.jpg)
+![final_photo_2022-03-07_23-51-19](https://user-images.githubusercontent.com/89923461/157094517-1a3863e3-417a-4947-ac27-33e27bbd2782.jpg)
 
 
 # Tools Used
