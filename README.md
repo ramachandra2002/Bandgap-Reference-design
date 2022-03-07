@@ -45,6 +45,8 @@ For simulating the design in DC the syntax is,
 
 ## CTAT Simulation
 
+### CTAT Voltage generation with single BJT
+
 The aim of this simulation is to find the voltage variation across BJT with respect to the temp if use current source of 10uA. The spice netlist which we are going to simulate is, 
 
 ```
@@ -76,6 +78,53 @@ plot v(qp1)
 And to simulate this netlist, type `ngspice ctat_voltage_gen.sp`. Now we the see the corresponding waveform after the simulation
 
 ![c2_Picture1](https://user-images.githubusercontent.com/89923461/156916584-e521a3b1-a3fa-4039-8d92-e252f5ca2a2e.png)
+
+
+### CTAT Voltage genration with multiple BJTs
+
+ The spice netlist which we are going to simulate is, 
+
+```
+**** ctat voltage generation circuit with multiple bjt *****
+
+.lib "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130.lib.spice tt"
+.include "/home/ramachandra14519/Desktop/ramachandra_bgr/eda-technology/sky130/models/spice/models/sky130_fd_pr__model__pnp.model.spice"
+
+.global vdd gnd
+.temp 27
+
+*** bjt definition
+xqp1	gnd	gnd	qp1	gnd	sky130_fd_pr__pnp_05v5_W3p40L3p40	m=8
+
+*** supply voltage and current
+vsup	vdd	gnd	dc	2
+isup	vdd	qp1	dc 	10u
+.dc	temp	-40	125	5
+
+*** control statement
+.control
+run
+plot v(qp1)
+.endc
+.end
+```
+
+And to simulate this netlist, type `ngspice ctat_voltage_gen_mul_bjt.sp`. Now we the see the corresponding waveform after the simulation
+
+![ctat_mulbjts_c2_Picture1](https://user-images.githubusercontent.com/89923461/156957442-4513d2b6-7e74-4b59-978c-11a94573785d.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
