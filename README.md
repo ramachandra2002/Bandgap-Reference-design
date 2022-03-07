@@ -599,7 +599,8 @@ poly resistors of W=1.41 and L=7.8
 
 ### Design of STARTERNFET
 
-![Design of STARTERNFET_Picture1](https://user-images.githubusercontent.com/89923461/157081718-bd248707-69da-415d-bb6c-a734b3301a97.p
+![Design of STARTERNFET_Picture1](https://user-images.githubusercontent.com/89923461/157095213-d108d246-88d4-4f2d-a52a-b53d384a842d.png)
+
 
 ## Top level design
 
