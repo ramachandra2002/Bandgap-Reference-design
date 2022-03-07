@@ -79,8 +79,6 @@ By connecting the subcircuits we get the total circuit,
 
 # Day 2:  BGR Labs and post-layout simulations
 
-# Circuit Design Calculations
-
 # Pre-Layout Simulation
 
 To simulate these sub circuits, we are going to use netlist and simulate it using *ngspice*. To create a netlist, first create a file with a `filename.sp` extension. Use the first line as a comment to describe about the circuit for easier identification. First to create a valid spice netlist, we have to include a library with its path and its corner name.
