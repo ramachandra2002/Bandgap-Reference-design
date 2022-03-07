@@ -512,44 +512,39 @@ poly resistors of W=1.41 and L=7.8
 
 ## Block Design
 
+### Design of NFETs
+
+![nfets_Picture1](https://user-images.githubusercontent.com/89923461/157080936-d66fd772-55f9-4e9f-96f2-561c002f56da.png)
+
+### Design of PFETs
+
+![pfets_Picture1](https://user-images.githubusercontent.com/89923461/157081067-cd6dfc95-de84-4783-aaf7-5b42a92254a8.png)
+
+### Design of RESBANK
+
+![Design of RESBANK_Picture1](https://user-images.githubusercontent.com/89923461/157081217-9adc391f-db23-4935-b2ff-e37c8b12f23c.png)
+
+###  Design of PNP10
+
+![pnp10](https://user-images.githubusercontent.com/89923461/157081557-67e61669-39ef-4b45-9829-d9be99565a3b.png)
+
+### Design of STARTERNFET
+
+![Design of STARTERNFET_Picture1](https://user-images.githubusercontent.com/89923461/157081718-bd248707-69da-415d-bb6c-a734b3301a97.p
+
+## Top level design
+
+![top](https://user-images.githubusercontent.com/89923461/157081567-9739c861-bc3b-4087-b237-2634187fa2cc.png)
 
 
+# Author
 
+Ramachandra T, BE in Electronics and Communication Engineering at Madras Institute of Technology, Anna University
 
+# Acknowledgement
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. Kunal Ghosh, VSD Corp
+2. Santunu Sarangi, Silicon Institute of Technology (SIT), Bhubaneswar
 
 
 
