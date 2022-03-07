@@ -479,8 +479,44 @@ plot v(vref)
 
 # Layout Design
 
+The Layout Design for the sub circuits are done magic tool. The invoke the magic tool for new design, the command to type is,
+
+```
+magic -T <technology_file_name.tech> <layout.mag>
+```
+
+## Basic Cell Design
+
+### Design of NFET
+
+In our design we have used two different size nfets:
+
+1. W=5 L=1 
+
+![nfet1_Picture2](https://user-images.githubusercontent.com/89923461/156961553-041fee16-d4dd-4b7d-8018-801ace5de4a2.png)
+
+2. W=1 L=7
+
+![nfet2_Picture2](https://user-images.githubusercontent.com/89923461/156961619-b0bc2cac-c08d-4aef-a901-b8f8734dbbd4.png)
+
+### Design of PFET
+
+Size: W=5 L=2
+
+![pfet_Picture2](https://user-images.githubusercontent.com/89923461/156961713-34fc5181-d7ba-4684-990b-1756a8480897.png)
 
 
+### Design of Resistor
+
+poly resistors of W=1.41 and L=7.8
+
+![res_Picture2](https://user-images.githubusercontent.com/89923461/156961907-24840eab-f708-4ba2-996e-61b105209874.png)
+
+### Design of PNP (BJT)
+
+![pnp_Picture2](https://user-images.githubusercontent.com/89923461/156961995-9fe94d0c-11ee-4427-9345-4dc4c17ef683.png)
+
+## Block Design
 
 
 
